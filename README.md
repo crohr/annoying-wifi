@@ -7,7 +7,7 @@
 ## Usage
 
 ### Login
-		nordicruby login
+		nordicruby-wifi login
 
 ### Logout
-		nordicruby logout
+		nordicruby-wifi logout
