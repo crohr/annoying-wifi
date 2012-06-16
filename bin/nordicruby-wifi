@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require "curb"
+require "thor"
+require "yaml"
+
+class NordicRubyWifi < Thor
+  desc "login", "Logs you in to the wifi"
+  def login
+  	while true
+	  	username, password = cached_credentials do
+	  	 [ask("Username:"), ask("Password:")]
+	  	end
+	  	say "Attempting login with #{username} / #{"*"*password.length}"
+	    req = Curl::Easy.http_post("https://login.homerun.telia.com/sd/login", "username=#{username}&operator=&password=#{password}")
+
+		if req.body_str =~ /errorMessage/
+		  puts "Wrong user name/password" 
+		  clear_cache
+		elsif req.body_str =~ /expired/
+		  puts "Looks like your username/password expired" 
+		  clear_cache
+		else
+			say "Hooray, you are now logged in!"
+			break
+		end
+	end
+  end
+
+  desc "logout", "Logs you out"
+  def logout
+    req = Curl::Easy.http_post("https://login.homerun.telia.com/sd/logout")
+	say "Logged out!"
+  end
+
+  private
+  def clear_cache
+  	File.delete(".cred")
+  end
+  def cached_credentials(&blk)
+  	File.open(".cred", 'w') { |f| YAML::dump(blk.call, f) } unless File.exists?(".cred")
+	YAML::load_file(".cred")
+  end
+end
+
+NordicRubyWifi.start
