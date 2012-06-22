@@ -1,4 +1,8 @@
-# Nordicruby::Wifi
+# RuLu::Wifi
+
+To make life easier for everyone to login on wifi edited around the
+awesome little gem @bjoerge made for NordicRuby (thanks !). Just follow
+instructions :
 
 ## Installation
 
@@ -9,5 +13,3 @@
 ### Login
 		rulu-wifi login
 
-### Logout
-		rulu-wifi logout
