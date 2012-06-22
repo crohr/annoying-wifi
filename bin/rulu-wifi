@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "curb"
+require "thor"
+require "yaml"
+
+class RuLuWifi < Thor
+
+  desc "login", "Logs you in to the wifi"
+  def login
+  	while true
+      username = "srep"
+      password = username + "2012"
+	  	say "Attempting login with #{username} / #{"*"*password.length}"
+	    req = Curl::Easy.http_post("https://wifi.univ-lyon3.fr/auth/index.html/u", "user=#{username}&password=#{password}")
+
+		  if req.body_str =~ /errorMessage/
+		    puts "Wrong user name/password" 
+		  elsif req.body_str =~ /expired/
+		    puts "Looks like your username/password expired" 
+		  else
+			  say "Hooray, you are now logged in!"
+			  break
+		  end
+	  end
+  end
+
+end
+
+RuLuWifi.start

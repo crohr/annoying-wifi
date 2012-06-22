@@ -7,7 +7,7 @@
 ## Usage
 
 ### Login
-		nordicruby-wifi login
+		rulu-wifi login
 
 ### Logout
-		nordicruby-wifi logout
+		rulu-wifi logout
