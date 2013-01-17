@@ -4,7 +4,7 @@ Derived from [Rulu-Wifi](https://github.com/mcansky/RuLu-Wifi). Allows to login 
 
 ## Installation
 
-		rake install
+    gem install annoying-wifi
 
 ## Usage
 
