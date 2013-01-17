@@ -1,8 +1,6 @@
-# RuLu::Wifi
+# AnnoyingWifi
 
-To make life easier for everyone to login on wifi edited around the
-awesome little gem @bjoerge made for NordicRuby (thanks !). Just follow
-instructions :
+Derived from [Rulu-Wifi](https://github.com/mcansky/RuLu-Wifi). Allows to login on the takeoffconf wifi.
 
 ## Installation
 
@@ -11,5 +9,6 @@ instructions :
 ## Usage
 
 ### Login
-		rulu-wifi login
+
+		annoying-wifi login
 

@@ -4,16 +4,16 @@ require "curb"
 require "thor"
 require "yaml"
 
-class RuLuWifi < Thor
+class AnnoyingWifi < Thor
 
   desc "login", "Logs you in to the wifi"
   def login
   	while true
-      username = "srep"
-      password = username + "2012"
+      username = "takeoff_31"
+      password = "q6Z8bnA2"
 	  	say "Attempting login with #{username} / #{"*"*password.length}"
-	    req = Curl::Easy.http_post("https://wifi.univ-lyon3.fr/auth/index.html/u", "user=#{username}&password=#{password}")
-
+	    req = Curl::Easy.http_post("https://controller.mobile.lan/portal_api.php", "action=authenticate&login=#{username}&password=#{password}")
+      puts req.body_str
 		  if req.body_str =~ /errorMessage/
 		    puts "Wrong user name/password" 
 		  elsif req.body_str =~ /expired/
@@ -27,4 +27,4 @@ class RuLuWifi < Thor
 
 end
 
-RuLuWifi.start
+AnnoyingWifi.start
