@@ -7,10 +7,12 @@ require "yaml"
 class AnnoyingWifi < Thor
 
   desc "login", "Logs you in to the wifi"
+  option :user
+  option :password
   def login
   	while true
-      username = "takeoff_31"
-      password = "q6Z8bnA2"
+      username = options[:user]
+      password = options[:password]
 	  	say "Attempting login with #{username} / #{"*"*password.length}"
 	    req = Curl::Easy.http_post("https://controller.mobile.lan/portal_api.php", "action=authenticate&login=#{username}&password=#{password}")
 
