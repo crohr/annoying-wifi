@@ -1,6 +1,10 @@
 # AnnoyingWifi
 
-Hack. Derived from [Rulu-Wifi](https://github.com/mcansky/RuLu-Wifi). Allows to login on the takeoffconf wifi.
+Hack. Derived from [Rulu-Wifi](https://github.com/mcansky/RuLu-Wifi).
+Allows to login to the takeoffconf wifi.
+
+Ask one of the staff member for a wifi login/password ticket they have
+plenty of them.
 
 ## Installation
 
