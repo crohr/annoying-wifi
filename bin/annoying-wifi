@@ -5,15 +5,15 @@ require "thor"
 require "yaml"
 
 class AnnoyingWifi < Thor
-
   desc "login", "Logs you in to the wifi"
   def login
   	while true
-      username = "takeoff_31"
-      password = "q6Z8bnA2"
+      username = ENV.fetch('USERNAME') { raise "need USERNAME" }
+      password = ENV.fetch('PASSWORD') { raise "need PASSWORD" }
 	  	say "Attempting login with #{username} / #{"*"*password.length}"
 	    req = Curl::Easy.http_post("https://controller.mobile.lan/portal_api.php", "action=authenticate&login=#{username}&password=#{password}")
 
+      puts req.body_str
 		  if req.body_str =~ /errorMessage/
 		    puts "Wrong user name/password" 
 		  elsif req.body_str =~ /expired/

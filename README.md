@@ -10,5 +10,5 @@ Hack. Derived from [Rulu-Wifi](https://github.com/mcansky/RuLu-Wifi). Allows to 
 
 ### Login
 
-		annoying-wifi login
+		USERNAME=takeoff_xx PASSWORD=xxx annoying-wifi login
 
