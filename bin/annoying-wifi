@@ -5,7 +5,7 @@ require "thor"
 require "yaml"
 
 class AnnoyingWifi < Thor
-  desc "login", "Logs you in to the wifi"
+  desc "login", "Logs you in to the wifi. `annoying-wifi login USERNAME=takeoff_XXX PASSWORD=XXX`"
   def login
     while true
       username = ENV.fetch('USERNAME') { raise "need USERNAME" }
